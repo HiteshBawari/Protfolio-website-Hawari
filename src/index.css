@@ -1,0 +1,434 @@
+
+/* ================= RESET ================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #050505;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ================= GLOBAL ================= */
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 60px;
+  text-shadow: 0 0 20px cyan;
+}
+
+.hero p {
+  margin-top: 10px;
+  color: gray;
+}
+
+/* ================= NAVBAR (DESKTOP UNTOUCHED) ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  font-size: 20px;
+  color: cyan;
+  text-shadow: 0 0 10px cyan;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: cyan;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: cyan;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ================= MENU BUTTON ================= */
+.menu-btn {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ================= MOBILE MENU ================= */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;
+  max-width: 320px;
+  height: 100vh;
+
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(15px);
+
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  z-index: 9998;
+}
+
+.mobile-menu.active {
+  transform: translateX(0);
+}
+
+.mobile-menu p {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ================= MOBILE NAV SLIDER ================= */
+.nav-slider {
+  display: none;
+}
+
+/* ================= SECTIONS ================= */
+.section {
+  padding: 120px 40px;
+  text-align: center;
+}
+
+/* ================= GRID ================= */
+.grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ================= CARD ================= */
+.card {
+  border: 1px solid cyan;
+  padding: 20px;
+  transition: 0.3s;
+  min-width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px cyan;
+}
+
+/* ================= BUTTON ================= */
+.btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: 1px solid cyan;
+  background: transparent;
+  color: cyan;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: cyan;
+  color: black;
+  box-shadow: 0 0 20px cyan;
+}
+
+/* ================= SLIDER ================= */
+.slider {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.drag-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  cursor: grab;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.drag-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================= FORM ================= */
+.contact-form {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input, textarea {
+  padding: 10px;
+  background: black;
+  border: 1px solid cyan;
+  color: white;
+}
+
+/* ================= CURSOR ================= */
+.cursor {
+  width: 18px;
+  height: 18px;
+  border: 2px solid cyan;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ================= EFFECTS ================= */
+.glow {
+  text-shadow: 0 0 20px cyan, 0 0 40px blue;
+}
+
+.magnetic:hover {
+  transform: scale(1.1);
+}
+
+/* About section */
+.aboutsec{
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+/* Card Div */
+.carddiv{
+  display: inline-block;
+  padding: 30px;
+  font-size: 1.5rem;
+}
+.card a{
+text-decoration: none;
+color: white;
+padding: 20px;
+margin: 15px;
+}
+/* ================= RESPONSIVE (ONLY MOBILE CHANGED) ================= */
+
+@media (max-width: 768px) {
+
+  /* hide desktop nav */
+  .nav-links {
+    display: none !important;
+  }
+
+  /* show menu button */
+  .menu-btn {
+    display: block;
+  }
+
+  /* MOBILE NAV SLIDER (APPLE STYLE) */
+  .nav-slider {
+    display: flex;
+    gap: 12px;
+
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    scroll-snap-type: x mandatory;
+    padding: 10px 15px;
+  }
+
+  .nav-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-slider span {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+
+    padding: 8px 14px;
+    border: 1px solid cyan;
+    border-radius: 20px;
+
+    font-size: 13px;
+    white-space: nowrap;
+
+    transition: 0.2s;
+  }
+
+  .nav-slider span.active {
+    background: cyan;
+    color: black;
+  }
+
+  .nav-slider span:active {
+    transform: scale(0.95);
+  }
+
+  /* layout fixes */
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .section {
+    padding: 100px 20px;
+  }
+
+  .carddiv{
+font-size: medium;
+padding: 20px;
+margin: 10px;
+  }
+  .carddiv h3{
+    padding-bottom: 10px;
+  }
+}
+
+/* SMALL DEVICES */
+@media (max-width: 480px) {
+  .mobile-menu {
+    width: 90%;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+}
+
+
+/* 3D CONTEXT */
+.navbar {
+  perspective: 1200px;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .menu-btn {
+    display: block;
+    cursor: pointer;
+    z-index: 10001;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 85%;
+    max-width: 340px;
+    height: 100vh;
+
+    background: rgba(10,10,10,0.96);
+    backdrop-filter: blur(20px);
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    transform-origin: right center;
+
+    z-index: 10000;
+  }
+
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .close-btn {
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .close-btn:hover {
+    color: cyan;
+    transform: rotate(90deg);
+  }
+
+  .mobile-menu p {
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .mobile-menu p:hover,
+  .mobile-menu p.active {
+    color: cyan;
+    transform: translateX(6px);
+  }
+}
