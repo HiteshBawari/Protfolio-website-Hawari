@@ -1,0 +1,139 @@
+.projects-section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 5%;
+  background: #050816;
+  overflow: hidden;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.projects-header h2 {
+  font-size: 4rem;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.projects-header p {
+  color: #8b95b4;
+  font-size: 1.1rem;
+}
+
+.projects-slider {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 20px;
+  cursor: grab;
+
+  scrollbar-width: none;
+}
+
+.projects-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.project-card {
+  position: relative;
+  min-width: 360px;
+  height: 420px;
+  padding: 35px;
+  border-radius: 30px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(20px);
+
+  overflow: hidden;
+
+  transition: 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  border-color: #00f0ff;
+}
+
+.card-glow {
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle,
+    rgba(0,240,255,0.25),
+    transparent 70%
+  );
+
+  animation: rotateGlow 8s linear infinite;
+}
+
+@keyframes rotateGlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.project-card h3 {
+  position: relative;
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 20px;
+  z-index: 2;
+}
+
+.project-card p {
+  position: relative;
+  color: #9ca3af;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  z-index: 2;
+}
+
+.project-card span {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 35px;
+  color: #00f0ff;
+  z-index: 2;
+}
+
+.project-card a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 28px;
+  border-radius: 50px;
+
+  background: #00f0ff;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+
+  transition: 0.3s ease;
+  z-index: 2;
+}
+
+.project-card a:hover {
+  background: white;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .projects-header h2 {
+    font-size: 2.8rem;
+  }
+
+  .project-card {
+    min-width: 85%;
+    height: auto;
+  }
+}

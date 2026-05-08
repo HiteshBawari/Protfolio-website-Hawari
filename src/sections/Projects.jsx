@@ -1,37 +1,110 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import "./Projects.css";
+
+const projects = [
+  {
+    title: "Night India Owl",
+    desc: "Modern AI powered cyber security platform.",
+    link: "#",
+    tech: "React • GSAP • Three.js"
+  },
+  {
+    title: "Clothing E-Commerce",
+    desc: "Premium fashion shopping experience.",
+    link: "#",
+    tech: "React • Firebase • Stripe"
+  },
+  {
+    title: "Rent A Car",
+    desc: "Luxury car rental booking platform.",
+    link: "#",
+    tech: "React • Node • MongoDB"
+  },
+  {
+    title: "3D Portfolio",
+    desc: "Interactive cinematic portfolio website.",
+    link: "#",
+    tech: "React • Three.js • Blender"
+  }
+];
 
 export default function Projects() {
-  const ref = useRef();
+  const sliderRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
 
-  let isDown = false, startX, scrollLeft;
+  let startX = 0;
+  let scrollLeft = 0;
 
-  const down = (e) => {
-    isDown = true;
-    startX = e.pageX - ref.current.offsetLeft;
-    scrollLeft = ref.current.scrollLeft;
+  useEffect(() => {
+    const slider = sliderRef.current;
+
+    const autoSlide = setInterval(() => {
+      if (!isDragging) {
+        slider.scrollLeft += 1.2;
+
+        if (
+          slider.scrollLeft + slider.clientWidth >=
+          slider.scrollWidth
+        ) {
+          slider.scrollLeft = 0;
+        }
+      }
+    }, 15);
+
+    return () => clearInterval(autoSlide);
+  }, [isDragging]);
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    startX = e.pageX - sliderRef.current.offsetLeft;
+    scrollLeft = sliderRef.current.scrollLeft;
   };
 
-  const move = (e) => {
-    if (!isDown) return;
-    const x = e.pageX - ref.current.offsetLeft;
-    ref.current.scrollLeft = scrollLeft - (x - startX) * 2;
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+
+    e.preventDefault();
+
+    const x = e.pageX - sliderRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+
+    sliderRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const stopDragging = () => {
+    setIsDragging(false);
   };
 
   return (
-    <section id="projects" className="panel section">
-      <h2>Projects</h2>
+    <section id="projects" className="projects-section">
+      <div className="projects-header">
+        <h2>Featured Projects</h2>
+        <p>Professional modern projects with cinematic UI experiences.</p>
+      </div>
 
       <div
-        className="drag-slider"
-        ref={ref}
-        onMouseDown={down}
-        onMouseMove={move}
-        onMouseUp={() => (isDown = false)}
-        onMouseLeave={() => (isDown = false)}
+        className="projects-slider"
+        ref={sliderRef}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={stopDragging}
+        onMouseLeave={stopDragging}
       >
-        <div className="card"><a href="">Night India Owl</a></div>
-        <div className="card"><a href="">Clothing E-commerce Website</a></div>
-        <div className="card"><a href="">Rent a Car E-commerce</a></div>
+        {projects.map((project, index) => (
+          <div className="project-card" key={index}>
+            <div className="card-glow"></div>
+
+            <h3>{project.title}</h3>
+
+            <p>{project.desc}</p>
+
+            <span>{project.tech}</span>
+
+            <a href={project.link} target="_blank">
+              View Project
+            </a>
+          </div>
+        ))}
       </div>
     </section>
   );
