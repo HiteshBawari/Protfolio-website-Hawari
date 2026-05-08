@@ -11,16 +11,9 @@ import Contact from "./sections/Contact";
 export default function App() {
   useScrollEngine();
 
-  return (
-    <>
-      <Cursor />
-      <Navbar />
-
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-    </>
-  );
+ return (
+  <>
+    <h1>Website Working</h1>
+  </>
+);
 }
