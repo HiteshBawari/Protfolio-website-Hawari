@@ -12,8 +12,15 @@ export default function App() {
   useScrollEngine();
 
  return (
-  <>
-    <h1>Website Working</h1>
-  </>
-);
+    <>
+      <Cursor />
+      <Navbar />
+
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
+    </>
+  );
 }
