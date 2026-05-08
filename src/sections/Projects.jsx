@@ -17,13 +17,13 @@ const projects = [
   {
     title: "Rent A Car",
     desc: "Luxury car rental booking platform.",
-    link: "https://rent-a-car-website.vercel.app/",
+    link: "https://rent-car-beige.vercel.app/",
     tech: "• Html • CSS • JavaScript"
   },
   {
     title: "3D Portfolio",
     desc: "Interactive cinematic portfolio website.",
-    link: "https://3d-portfolio-website.vercel.app/",
+    link: "https://my-protfolio-website-drab.vercel.app",
     tech: "• Html • CSS • JavaScript • Three.js • Blender"
   }
 ];
