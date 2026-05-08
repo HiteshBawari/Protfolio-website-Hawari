@@ -4,27 +4,27 @@ import "./Projects.css";
 const projects = [
   {
     title: "Night India Owl",
-    desc: "Modern AI powered cyber security platform.",
-    link: "#",
-    tech: "React • GSAP • Three.js"
+    desc: "People Night Work  security platform.",
+    link: "https://night-owl-india-website.vercel.app/",
+    tech: "• Html • CSS • GSAP • javascript"
   },
   {
     title: "Clothing E-Commerce",
     desc: "Premium fashion shopping experience.",
-    link: "#",
-    tech: "React • Firebase • Stripe"
+    link: "https://clothing-brand-hawari.vercel.app/",
+    tech: "• Html • CSS • JavaScript"
   },
   {
     title: "Rent A Car",
     desc: "Luxury car rental booking platform.",
-    link: "#",
-    tech: "React • Node • MongoDB"
+    link: "https://rent-a-car-website.vercel.app/",
+    tech: "• Html • CSS • JavaScript"
   },
   {
     title: "3D Portfolio",
     desc: "Interactive cinematic portfolio website.",
-    link: "#",
-    tech: "React • Three.js • Blender"
+    link: "https://3d-portfolio-website.vercel.app/",
+    tech: "• Html • CSS • JavaScript • Three.js • Blender"
   }
 ];
 

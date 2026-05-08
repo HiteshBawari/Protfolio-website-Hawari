@@ -11,7 +11,7 @@ import Contact from "./sections/Contact";
 export default function App() {
   useScrollEngine();
 
-  return (
+ return (
     <>
       <Cursor />
       <Navbar />
